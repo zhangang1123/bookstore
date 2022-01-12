@@ -1,5 +1,7 @@
 package org.xulinux.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.xulinux.dao.BookMapper;
 
 /**
@@ -8,7 +10,9 @@ import org.xulinux.dao.BookMapper;
  * @Author wfh
  * @Date 2022/1/10 下午3:57
  */
+@Service
 public class BookServiceImpl implements BookService{
+    @Autowired
     private BookMapper bookMapper;
 
     public BookServiceImpl() {

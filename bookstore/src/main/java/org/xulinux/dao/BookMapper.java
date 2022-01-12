@@ -1,5 +1,9 @@
 package org.xulinux.dao;
 
+import org.xulinux.pojo.Book;
+
+import java.util.List;
+
 /**
  * //TODO add class commment here
  *

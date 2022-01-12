@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>西邮linux兴趣小组书库</title>
   </head>
   <body>
-  $END$
+          <form action="/Bookstore/managers" method="post">
+            姓名:<input name="name" type="text" >
+            密码:<input name="password" type="password">
+            提交:<input type="submit">
+          </form>
   </body>
 </html>

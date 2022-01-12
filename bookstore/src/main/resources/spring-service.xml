@@ -7,7 +7,6 @@
         http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <context:component-scan base-package="org.xulinux.service"/>
-    <import resource="classpath:spring-dao.xml"/>
 <!--    将所有的业务类注入到spring,可以通过配置注解实现-->
     <bean id="BookServiceImpl" class="org.xulinux.service.BookServiceImpl">
         <property name="bookMapper" ref="bookMapper"/>
