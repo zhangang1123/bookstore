@@ -6,4 +6,19 @@
         INSERT INTO `manager`(name,password)
         VALUE (#{name},#{password});
     </insert>
+    <delete id="deleteManager" parameterType="string">
+        DELETE FROM `manager`
+        WHERE name=#{name};
+    </delete>
+    <update id="updateManager" parameterType="manager">
+        UPDATE `manager`
+        SET password=#{password}
+        WHERE name=#{name};
+    </update>
+    <select id="queryManager" parameterType="string">
+        SELECT name,password
+        FROM manager
+        WHERE name=#{name}
+    </select>
+
 </mapper>

@@ -13,8 +13,9 @@ import org.xulinux.util.Util;
  * @Author wfh
  * @Date 2022/1/12 下午2:51
  */
-@RestController //restController相当于responsebody 和 controller的集合
+//@RestController //restController相当于responsebody 和 controller的集合
 @RequestMapping("/managers")
+@Controller
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
@@ -25,7 +26,7 @@ public class ManagerController {
         System.out.println(manager);
         this.managerService.addManager(manager);
         System.out.println(Util.getGson().toJson(manager));
-        return Util.getGson().toJson(manager);
+        return "redirect:index.jsp";
     }
 }
 

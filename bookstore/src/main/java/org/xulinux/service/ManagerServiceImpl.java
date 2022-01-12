@@ -20,4 +20,19 @@ public class ManagerServiceImpl implements ManagerService{
     public int addManager(Manager manager) {
         return managerMapper.addManager(manager);
     }
+
+    @Override
+    public int deleteManager(String name) {
+        return managerMapper.deleteManager(name);
+    }
+
+    @Override
+    public int updateManager(Manager manager) {
+        return managerMapper.updateManager(manager);
+    }
+
+    @Override
+    public String getPassword(String name) {
+        return managerMapper.queryManager(name).getPassword();
+    }
 }

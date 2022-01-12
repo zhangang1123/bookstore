@@ -1,5 +1,6 @@
 package org.xulinux.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.xulinux.pojo.Manager;
 
 /**
@@ -10,4 +11,7 @@ import org.xulinux.pojo.Manager;
  */
 public interface ManagerMapper {
     public int addManager(Manager manager);
+    public int deleteManager(@Param("name") String name);
+    public int updateManager(Manager manager);
+    public Manager queryManager(@Param("name") String name);
 }

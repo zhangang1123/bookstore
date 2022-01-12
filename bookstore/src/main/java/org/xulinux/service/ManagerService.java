@@ -11,4 +11,7 @@ import org.xulinux.pojo.Manager;
  */
 public interface ManagerService {
     public int addManager(Manager manager);
+    public int deleteManager(String name);
+    public int updateManager(Manager manager);
+    public String getPassword(String name);
 }

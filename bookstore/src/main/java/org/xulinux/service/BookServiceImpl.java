@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xulinux.dao.BookMapper;
 
+import java.util.logging.Logger;
+
 /**
  * //TODO add class commment here
  *
