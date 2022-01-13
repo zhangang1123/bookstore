@@ -2,10 +2,16 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.xulinux.dao.BookMapper;
 import org.xulinux.dao.ManagerMapper;
+import org.xulinux.dao.TagMapper;
 import org.xulinux.pojo.Book;
 import org.xulinux.pojo.Manager;
+import org.xulinux.pojo.Tag;
 import org.xulinux.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * //TODO add class commment here
@@ -18,14 +24,32 @@ public class Test {
     @org.junit.Test
     public void testForMybaties() {
         ApplicationContext applicationContext  = new ClassPathXmlApplicationContext("/applicationContext.xml");
+//
+        BookMapper bookMapper = applicationContext.getBean(BookMapper.class);
+//        Book book = new Book();
+//        book.setId(3);
+//        book.setName("thinking in java");
+//        book.setDownloads(3);
+//        bookMapper.updateBook(book);
+//        TagMapper tagMapper = applicationContext.getBean(TagMapper.class);
+//        Tag tag = new Tag();
+//        tag.setName("haode");
+//        tag.setId(1);
+//        tagMapper.updateTag(tag);
 
-        ManagerMapper managerMapper = applicationContext.getBean(ManagerMapper.class);
+//        TagMapper tagMapper = applicationContext.getBean(TagMapper.class);
+//
+////        tagMapper.deteteTag(1);
+//
+//        tagMapper.addTag(tag);
+//        tagMapper.addTag(tag);
+//        tagMapper.addTag(tag);
+//        System.out.println(tagMapper.queryTag());
 
-        System.out.println(managerMapper);
-        Manager manager = new Manager();
-        manager.setPassword("fdsfsd");
-        manager.setName("fsdfsd");
+        Map map = new HashMap();
+        map.put("offset",0);
+        map.put("limit",5);
 
-        System.out.println(managerMapper.addManager(manager));
+        System.out.println(bookMapper.queryBookList(map));
     }
 }

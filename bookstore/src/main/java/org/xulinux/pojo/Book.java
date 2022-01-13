@@ -1,5 +1,7 @@
 package org.xulinux.pojo;
 
+import java.util.List;
+
 /**
  * //TODO add class commment here
  *
@@ -9,10 +11,50 @@ package org.xulinux.pojo;
 public class Book {
     private int id;
     private String name;
-    private String url;
     private String describe;
     private String type;
+    private List<Tag> tags;
     private int downloads;
+    private String imgUrl;
+    private String resUrl;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", describe='" + describe + '\'' +
+                ", type='" + type + '\'' +
+                ", tags=" + tags +
+                ", downloads=" + downloads +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", resUrl='" + resUrl + '\'' +
+                '}';
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getResUrl() {
+        return resUrl;
+    }
+
+    public void setResUrl(String resUrl) {
+        this.resUrl = resUrl;
+    }
 
     public int getId() {
         return id;
@@ -28,14 +70,6 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public String getDescribe() {
@@ -62,15 +96,5 @@ public class Book {
         this.downloads = downloads;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", describe='" + describe + '\'' +
-                ", type='" + type + '\'' +
-                ", downloads=" + downloads +
-                '}';
-    }
+
 }

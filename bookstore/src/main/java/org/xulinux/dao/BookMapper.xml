@@ -3,4 +3,50 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.xulinux.dao.BookMapper">
+<!--    <select id="queryBook" parameterType="map" resultType="book">-->
+<!--        SELECT `b`.`id`,`b`.`name`,`b`.`url`,`b`.`describe`,`b`.`type`,`b`.`downloads`-->
+<!--                ,`t`.`name`,`t`.id-->
+<!--        FROM `book` AS `b`-->
+<!--        INNER JOIN `tag_book` AS `tb`,`tag` AS `t`-->
+<!--        ON `b`.`id`=`tb`.`book_id` AND `tb`.`tag_id`=`t`.`id`-->
+<!--    </select>-->
+
+    <insert id="addBook"  parameterType="book" keyProperty="id" useGeneratedKeys="true" >
+        INSERT INTO book(`name`,`img_url`,`res_url`,`describe`,`type`,`downloads`)
+        VALUE (#{name},#{img_url},#{res_url},#{describe},#{type},#{downloads});
+    </insert>
+    <delete id="deleteBook" parameterType="int">
+        DELETE FROM book
+        WHERE id=#{id};
+    </delete>
+    <update id="updateBook" parameterType="book">
+        UPDATE book
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="describe!=null and describe!=''">
+                `describe`=#{describe},
+            </if>
+            <if test="downloads!=null and downloads!=''">
+                `downloads`=#{downloads}
+            </if>
+        </set>
+        WHERE id=#{id};
+    </update>
+
+    <select id="queryBookList" parameterType="map" resultMap="bookMap">
+        SELECT `name`,`img_url`,`id`,`describe`
+        FROM book
+        <where>
+            <if test="name != null and name !=''">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+        LIMIT #{limit} OFFSET #{offset};
+    </select>
+
+    <resultMap id="bookMap" type="book">
+        <id column="img_url" property="imgUrl"></id>
+    </resultMap>
 </mapper>

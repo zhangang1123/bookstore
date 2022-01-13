@@ -3,5 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.xulinux.dao.TagMapper">
+    <insert id="addTag" parameterType="tag" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tag(name)
+        VALUE (#{name});
+    </insert>
+    <update id="updateTag" parameterType="tag">
+        UPDATE tag
+        SET name=#{name}
+        WHERE id=#{id};
+    </update>
+    <delete id="deteteTag" parameterType="int">
+        DELETE FROM tag
+        WHERE id=#{id};
+    </delete>
+    <select id="queryTag" resultType="tag">
+        SELECT id,name
+        FROM tag
+    </select>
 </mapper>
 
