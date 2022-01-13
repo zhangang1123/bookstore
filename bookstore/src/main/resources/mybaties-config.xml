@@ -17,5 +17,6 @@
         <mapper resource="org/xulinux/dao/BookMapper.xml"/>
         <mapper resource="org/xulinux/dao/TagMapper.xml"/>
         <mapper resource="org/xulinux/dao/ManagerMapper.xml"/>
+        <mapper resource="org/xulinux/dao/TagBookMapper.xml"/>
     </mappers>
 </configuration>

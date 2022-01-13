@@ -11,6 +11,33 @@
 <!--        ON `b`.`id`=`tb`.`book_id` AND `tb`.`tag_id`=`t`.`id`-->
 <!--    </select>-->
 
+    <select id="queryOneBook" resultMap="oneBookMap" parameterType="int">
+        SELECT b.id bid,b.name bname,b.`describe`,b.type,b.downloads,b.img_url,b.res_url,
+               t.name tname,t.id tid
+        FROM book AS b,tag_book AS tb,tag AS t
+        where b.id=#{id} AND b.id=tb.book_id AND tb.tag_id=t.id;
+    </select>
+
+    <select id="queryBooksByTag" resultType="book">
+        SELECT b.`name`,b.`img_url` imgUrl,b.`id`,b.`describe`
+        FROM book AS b,tag_book AS tb
+        WHERE tb.tag_id=#{id} AND tb.book_id=b.id;
+    </select>
+
+    <resultMap id="oneBookMap" type="book">
+        <result property="name" column="bname"/>
+        <result property="id" column="bid"/>
+        <result column="describe" property="describe"/>
+        <result column="type" property="type"/>
+        <result column="img_url" property="imgUrl"/>
+        <result column="res_url" property="resUrl"/>
+        <result column="downloads" property="downloads"/>
+        <collection property="tags" ofType="tag">
+            <result property="name" column="tname"/>
+            <result property="id" column="tid"/>
+        </collection>
+    </resultMap>
+
     <insert id="addBook"  parameterType="book" keyProperty="id" useGeneratedKeys="true" >
         INSERT INTO book(`name`,`img_url`,`res_url`,`describe`,`type`,`downloads`)
         VALUE (#{name},#{img_url},#{res_url},#{describe},#{type},#{downloads});
@@ -43,10 +70,11 @@
                 name like concat('%',#{name},'%')
             </if>
         </where>
+        ORDER BY
         LIMIT #{limit} OFFSET #{offset};
     </select>
 
     <resultMap id="bookMap" type="book">
-        <id column="img_url" property="imgUrl"></id>
+        <result property="imgUrl" column="img_url"/>
     </resultMap>
 </mapper>

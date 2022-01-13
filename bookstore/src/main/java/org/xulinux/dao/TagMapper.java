@@ -16,4 +16,5 @@ public interface TagMapper {
     public int updateTag(Tag tag);
     public int deteteTag(int id);
     public List<Tag> queryTag();
+
 }

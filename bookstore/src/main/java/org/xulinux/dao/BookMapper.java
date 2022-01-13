@@ -12,9 +12,10 @@ import java.util.Map;
  * @Date 2022/1/10 下午3:45
  */
 public interface BookMapper {
-//    public List<Book> queryBook(Map map);
     public int addBook(Book book);
     public int deleteBook(int id);
     public int updateBook(Book book);
     public List<Book> queryBookList(Map map);
+    public Book queryOneBook(int id);
+    public List<Book> queryBooksByTag(int id);
 }
