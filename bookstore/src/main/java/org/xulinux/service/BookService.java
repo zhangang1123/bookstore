@@ -15,4 +15,6 @@ public interface BookService {
     public List<Book> queryBookList(Map map);
     public List<Book> queryBookList(int offset,int limit);
     public List<Book> queryBookList(int offset,int limit,String name);
+    public Book queryOneBook(int id);
+    public List<Book> getBooksByTag(int id,int offset,int limit);
 }

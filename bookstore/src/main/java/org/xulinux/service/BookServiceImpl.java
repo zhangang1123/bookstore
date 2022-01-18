@@ -56,6 +56,16 @@ public class BookServiceImpl implements BookService{
 
         return this.bookMapper.queryBookList(map);
     }
+
+    @Override
+    public Book queryOneBook(int id) {
+        return this.bookMapper.queryOneBook(id);
+    }
+
+    @Override
+    public List<Book> getBooksByTag(int id,int offset,int limit) {
+        return this.bookMapper.queryBooksByTag(id,limit,offset);
+    }
 }
 
 // 添加其他业务只需通过aop即可

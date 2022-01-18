@@ -21,7 +21,9 @@
     <select id="queryBooksByTag" resultType="book">
         SELECT b.`name`,b.`img_url` imgUrl,b.`id`,b.`describe`
         FROM book AS b,tag_book AS tb
-        WHERE tb.tag_id=#{id} AND tb.book_id=b.id;
+        WHERE tb.tag_id=#{id} AND tb.book_id=b.id
+        LIMIT #{limit} OFFSET #{offset}
+        ORDER BY dowloads DESC;
     </select>
 
     <resultMap id="oneBookMap" type="book">

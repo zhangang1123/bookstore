@@ -1,5 +1,6 @@
 package org.xulinux.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.xulinux.pojo.Book;
 
 import java.util.List;
@@ -17,5 +18,5 @@ public interface BookMapper {
     public int updateBook(Book book);
     public List<Book> queryBookList(Map map);
     public Book queryOneBook(int id);
-    public List<Book> queryBooksByTag(int id);
+    public List<Book> queryBooksByTag(@Param("id") int id,@Param("limit") int limit,@Param("offset") int offset);
 }
