@@ -1,20 +1,14 @@
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.xulinux.dao.BookMapper;
-import org.xulinux.dao.ManagerMapper;
 import org.xulinux.dao.TagBookMapper;
-import org.xulinux.dao.TagMapper;
-import org.xulinux.pojo.Book;
-import org.xulinux.pojo.Manager;
-import org.xulinux.pojo.Tag;
 import org.xulinux.util.Util;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 /**
  * //TODO add class commment here
@@ -23,6 +17,12 @@ import java.util.Map;
  * @Date 2022/1/12 下午6:30
  */
 public class Test {
+
+    public static void main(String[] args) {
+        boolean a = true;
+
+        System.out.println(Util.getGson().toJson(a));
+    }
 
     @org.junit.Test
     public void test() {
